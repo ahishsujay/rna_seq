@@ -1,9 +1,10 @@
 # rna_seq
 
-##Overview:
-RNA-Seq pipelines that uses [HISAT2] (http://daehwankimlab.github.io/hisat2/) for alignment.
+## Overview:
+RNA-Seq pipelines that uses [HISAT2](http://daehwankimlab.github.io/hisat2/) for alignment.
 
-##Steps:
+## Steps:
+### 1. HISAT2:
 - Run `hisat2_wrapper.py` to use HISAT2 for alignment.<br/>
 Alternatively, the following bash script can be run in the directory where the files are present:
 ```bash
