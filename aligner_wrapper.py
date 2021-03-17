@@ -17,7 +17,7 @@ def checkFASTQ(list1, list2):
 
 def runKallisto(referenceindex, output_directory, input_directory, file1, file2):
     print("Running Kallisto for: "+file1.split("/")[-1].replace("_1.fastq", ""))
-    subprocess.run("kallisto quant -i "+referenceindex+" -o "+output_directory+file1.split("/")[-1].replace("_1.fastq", "")+" "+input_directory+file1+" "+input_directory+file2, shell=True)
+    subprocess.run("kallisto quant -i "+referenceindex+" -o "+output_directory+file1.split("/")[-1].replace("_1.fastq", "")+" "+input_directory+file1+" "+input_directory+file2+" -b 100", shell=True)
 
 def runHISAT2(referenceindex, output_directory, input_directory, file1, file2):
     print("Running HISAT2 for: "+file1.split("/")[-1].replace("_1.fastq", ""))

@@ -1,7 +1,7 @@
 # rna_seq
 
 ## Overview:
-RNA-Seq pipelines that uses [HISAT2](http://daehwankimlab.github.io/hisat2/) and [Kallisto](https://pachterlab.github.io/kallisto/) for alignment (and pseudo-alignment in case of the latter).
+RNA-Seq pipelines that uses [HISAT2](http://daehwankimlab.github.io/hisat2/) and [Kallisto](https://pachterlab.github.io/kallisto/) for alignment (pseudo-alignment and abundance calculations in case of the latter).
 
 ## Download Data:
 The dataset downloaded was [GSE120534](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA493296). Once the accession list is downloaded, download the SRA toolkit (https://github.com/ncbi/sra-tools) and run the following:
@@ -12,6 +12,12 @@ Once the files are download, retrieve the FASTQ files the following way:
 ```bash
 for file in *; do fastq-dump --split-files "$file"; done
 ```
+
+## Requirements:
+1. [Kallisto](https://pachterlab.github.io/kallisto). Alternatively, `conda install kallisto`
+2. [HISAT2](http://daehwankimlab.github.io/hisat2/).
+3. [Transcriptome index](https://github.com/pachterlab/kallisto-transcriptome-indices/releases) for *Homo sapiens* if Kallisto is used. Alternatively, index file can also be built using `kallisto index`.
+4. [Genome Index](http://daehwankimlab.github.io/hisat2/download/#index) for *Homo sapiens* if HISAT2  is used. Alternatively, index file can also be built using `hisat2-build`.
 
 ## Arguments:
 `-a | --aligner-to-use`: Specify `1` if you want to use Kallisto or `2` if you want to use HISAT2. DEFAULT: Kallisto<br/>
