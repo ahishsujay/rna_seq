@@ -14,10 +14,11 @@ for file in *; do fastq-dump --split-files "$file"; done
 ```
 
 ## Requirements:
-1. [Kallisto](https://pachterlab.github.io/kallisto). Alternatively, `conda install kallisto`
+1. [Kallisto](https://pachterlab.github.io/kallisto). Alternatively, `conda install kallisto` if conda is installed.
 2. [HISAT2](http://daehwankimlab.github.io/hisat2/).
-3. [Transcriptome index](https://github.com/pachterlab/kallisto-transcriptome-indices/releases) for *Homo sapiens* if Kallisto is used. Alternatively, index file can also be built using `kallisto index`.
-4. [Genome Index](http://daehwankimlab.github.io/hisat2/download/#index) for *Homo sapiens* if HISAT2  is used. Alternatively, index file can also be built using `hisat2-build`.
+3. Reference index:
+  - [Transcriptome index](https://github.com/pachterlab/kallisto-transcriptome-indices/releases) for *Homo sapiens* if Kallisto is used. Alternatively, index file can also be built using `kallisto index`.
+  - [Genome Index](http://daehwankimlab.github.io/hisat2/download/#index) for *Homo sapiens* if HISAT2  is used. Alternatively, index file can also be built using `hisat2-build`.
 
 ## Arguments:
 `-a | --aligner-to-use`: Specify `1` if you want to use Kallisto or `2` if you want to use HISAT2. DEFAULT: Kallisto<br/>
