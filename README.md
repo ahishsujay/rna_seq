@@ -6,7 +6,7 @@ RNA-Seq pipelines that uses [HISAT2](http://daehwankimlab.github.io/hisat2/) and
 ## Download Data:
 The dataset downloaded was [GSE120534](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA493296). Once the accession list is downloaded, download the SRA toolkit (https://github.com/ncbi/sra-tools) and run the following:
 ```bash
-prefetch --option-file ../SRR_Acc_List_1.txt
+prefetch --option-file SRR_Acc_List.txt
 ```
 Once the files are download, retrieve the FASTQ files the following way:
 ```bash
