@@ -3,6 +3,16 @@
 ## Overview:
 RNA-Seq pipelines that uses [HISAT2](http://daehwankimlab.github.io/hisat2/) and [Kallisto](https://pachterlab.github.io/kallisto/) for alignment (and pseudo-alignment in case of the latter).
 
+## Download Data:
+The dataset downloaded was [GSE120534](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA493296). Once the accession list is downloaded, download the SRA toolkit (https://github.com/ncbi/sra-tools) and run the following:
+```bash
+prefetch --option-file ../SRR_Acc_List_1.txt
+```
+Once the files are download, retrieve the FASTQ files the following way:
+```bash
+for file in *; do fastq-dump --split-files "$file"; done
+```
+
 ## Arguments:
 `-a | --aligner-to-use`: Specify `1` if you want to use Kallisto or `2` if you want to use HISAT2. DEFAULT: Kallisto<br/>
 `-i | --input-files-directory`: Enter the path of the directory containing FASTQ files.<br/>
