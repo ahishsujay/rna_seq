@@ -20,6 +20,8 @@ args <- parser$parse_args()
 
 if( tolower(args$differential_expression_analysis) == "deseq" ) { 
   
+  print("Using DESeq...")
+  
   #Loading packages:
   suppressPackageStartupMessages(library("tximport"))
   suppressPackageStartupMessages(library("tximportData"))
@@ -72,6 +74,8 @@ if( tolower(args$differential_expression_analysis) == "deseq" ) {
   write.csv(x=resdata, file="kallisto_tximport_deseq2_results.csv")
 
 } else if (tolower(args$differential_expression_analysis) == "sleuth" ) {
+  
+  print("Using Sleuth...")
     
   #Loading packages:
   suppressPackageStartupMessages(library("sleuth"))
