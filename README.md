@@ -28,7 +28,8 @@ for file in *; do fastq-dump --split-files "$file"; done
 
 ## Script execution:
 
-### 1. Kallisto:
+### 1. Alignment / Pseudoalignment and quantify:
+#### 1. Kallisto:
 - Run `./aligner_wrapper.py -a 1 -i <FASTQ files directory> -r <reference index directory> -o <aligner output directory>` to use Kallisto for pseudo-alginment and generate the abundance files.<br/>
 Alternatively, the following bash script can be run in the directory where the input files are present:
 ```bash
@@ -38,7 +39,7 @@ kallisto quant -i ../reference/homo_sapiens/transcriptome.idx -o kallisto_output
 done
 ```
 
-### 2. HISAT2:
+#### 2. HISAT2:
 - Run `./aligner_wrapper.py -a 2 -i <FASTQ files directory> -r <reference index directory>genome -o <aligner output directory>` to use HISAT2 for alignment.<br/>
 Alternatively, the following bash script can be run in the directory where the input files are present:
 ```bash
@@ -47,3 +48,10 @@ do
 hisat2 -x ../reference/grch38/genome -1 ${f}_1.fastq -2 ${f}_2.fastq -S ${f}.sam
 done
 ```
+
+### 2. Differential Expression (DE):
+#### 1. DESeq2:
+- Run `./differential_expression.R -de DESeq -o <kallisto_output_directory> -m <meta_data_file> -p <pvalue_cutoff>` to import transcript abundance files from Kallisto and perform DE analysis with DESeq2.
+
+#### 2. Sleuth:
+- Run `./differential_expression.R -de Sleuth -o <kallisto_output_directory> -m <meta_data_file> -p <pvalue_cutoff>` to use Sleuth after quantifying with Kallisto. 
